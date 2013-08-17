@@ -13,10 +13,10 @@ class User < ActiveRecord::Base
 
   def subscribe!(mobile_no)
     amberlock = Amberlock.new
-    enabled = true
-    mobile = mobile_no
-    if save!
-      amberlock.subscribe_user(self.mobile, self.email)
-    end
+    self.enabled = true
+    self.mobile = mobile_no
+    self.save!
+    amberlock.subscribe_user(mobile, email)
   end
+
 end

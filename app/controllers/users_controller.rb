@@ -16,9 +16,9 @@ class UsersController < ApplicationController
 
   def request_unlock
     @user = User.where(id: session["warden.user.user.key"][0]).first
-    @response = AMBERLOCK.request_unlock(@user.mobile, @user.email)
-    parsed = JSON.parse(@response)
-    session[:unlock_code] = parsed["amber_code"]
+    @raw_response = AMBERLOCK.request_unlock(@user.mobile, @user.email)
+    parsed = JSON.parse(@raw_response)
+    session[:unlock_code] = parsed[:amber_code][:value]
     redirect_to amberlocked_path
   end
 
@@ -38,7 +38,16 @@ class UsersController < ApplicationController
   def add_mobile
     @user = User.find params[:id]
     @user.subscribe!(params[:mobile])
-    render json: { status: 'success' }
+    redirect_to artists_path
+  end
+
+  def update
+    @user = User.find params[:id]
+    if @user.update_attributes(params[:user])
+      redirect_to artists_path
+    else
+      render 'edit'
+    end
   end
 
 end
