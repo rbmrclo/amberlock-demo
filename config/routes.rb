@@ -1,10 +1,20 @@
 AmberlockDemo::Application.routes.draw do
+  get "amberlock/enable_user"
+
   resources :artists
 
+  devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' } do
+    root to: 'sessions#new'
+  end
 
-  get "pages/landing"
 
-  devise_for :users
+  resources :users
+
+  resources :amberlock do
+    collection do
+      post :enable_user
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -55,7 +65,7 @@ AmberlockDemo::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'pages#landing'
+
 
   # See how all your routes lay out with "rake routes"
 
