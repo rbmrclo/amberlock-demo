@@ -11,7 +11,7 @@ class Amberlock
     RestClient.post "#{@subscribe_url}", "api_key=#{@api_key}&amber_code=#{@amber_code}&mobile=#{mobile}&email=#{email}"
   end
 
-  def request_unlock_url(mobile, email)
+  def request_unlock(mobile, email)
     RestClient.post "#{@request_unlock_url}", "api_key=#{@api_key}&amber_code=#{@amber_code}&mobile=#{mobile}&email=#{email}"
   end
 

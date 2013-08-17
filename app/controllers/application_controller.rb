@@ -1,10 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  before_filter :amberlock_block!
 
-  def amberlock_block!
-
+  def check_blocked?
+    if session[:blocked].eql? true
+      redirect_to amberlocked_path
+    end
   end
 
 end

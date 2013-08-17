@@ -1,4 +1,5 @@
 class ArtistsController < ApplicationController
+  before_filter :check_blocked?
   # GET /artists
   # GET /artists.json
   def index

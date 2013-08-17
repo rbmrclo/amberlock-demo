@@ -1,5 +1,4 @@
 AmberlockDemo::Application.routes.draw do
-  get "amberlock/enable_user"
 
   resources :artists
 
@@ -9,10 +8,18 @@ AmberlockDemo::Application.routes.draw do
 
 
   resources :users do
+    collection do
+      get :amberlock
+      get :request_unlock
+      post :verify_unlock
+    end
     member do
       get :enable
+      post :add_mobile
     end
   end
+
+  match '/amberlocked', to: 'users#amberlock', as: :amberlocked
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
