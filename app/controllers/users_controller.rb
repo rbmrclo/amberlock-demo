@@ -37,10 +37,7 @@ class UsersController < ApplicationController
 
   def add_mobile
     @user = User.find params[:id]
-    if @user.subscribe!(params[:mobile])
-      render json: { status: 'success' }
-    end
-  rescue RestClient::UnprocessableEntity
+    @user.subscribe!(params[:mobile])
     render json: { status: 'success' }
   end
 

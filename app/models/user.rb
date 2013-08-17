@@ -8,13 +8,15 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :mobile, :enabled
   # attr_accessible :title, :body
-  
+  #
+  # after_save :subscribe_user
 
   def subscribe!(mobile_no)
-    amberlock ||= Amberlock.new
+    amberlock = Amberlock.new
     enabled = true
     mobile = mobile_no
-    amberlock.subscribe_user(mobile, email)
-    save!
+    if save!
+      amberlock.subscribe_user(self.mobile, self.email)
+    end
   end
 end
