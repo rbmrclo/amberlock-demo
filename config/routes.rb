@@ -8,11 +8,9 @@ AmberlockDemo::Application.routes.draw do
   end
 
 
-  resources :users
-
-  resources :amberlock do
-    collection do
-      post :enable_user
+  resources :users do
+    member do
+      get :enable
     end
   end
 
