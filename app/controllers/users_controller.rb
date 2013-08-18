@@ -16,9 +16,9 @@ class UsersController < ApplicationController
 
   def request_unlock
     @user = User.where(id: session["warden.user.user.key"][0]).first
-    @raw_response = AMBERLOCK.request_unlock(@user.mobile, @user.email)
-    parsed = JSON.parse(@raw_response)
-    session[:unlock_code] = parsed[:amber_code][:value]
+    raw_response = AMBERLOCK.request_unlock(@user.mobile, @user.email)
+    parsed = JSON.parse(raw_response)
+    session[:unlock_code] = parsed["amber_code"]["value"]
     redirect_to amberlocked_path
   end
 

@@ -1,6 +1,6 @@
 class Amberlock
 
-  def initialize(api_key = 'at2qRF4hpTHhqaPp4k1P', amber_code = 'DA-28aa1dace44c')
+  def initialize(api_key = 'rPLqG41JuX2k8hC2woZq', amber_code = 'DA-54ad0e02e5df')
     @api_key = api_key
     @amber_code = amber_code
     @subscribe_url = 'http://amberlock.herokuapp.com/api/amber_users'
