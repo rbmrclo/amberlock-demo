@@ -17,13 +17,13 @@ group :assets do
   gem 'factory_girl_rails', '>= 4.2.0'
   gem 'quiet_assets', '>= 1.0.1'
   gem 'awesome_print'
+  gem 'twitter-bootstrap-rails'
+  gem 'less-rails'
+  gem 'therubyracer'
 end
 
 gem 'jquery-rails'
 gem 'rest-client'
-gem 'therubyracer'
-gem 'less-rails'
-gem 'twitter-bootstrap-rails'
 gem 'devise'
 
 gem 'haml', '>= 3.1.7'
