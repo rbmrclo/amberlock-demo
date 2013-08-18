@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   # after_save :subscribe_user
 
   def subscribe!(mobile_no)
-    amberlock = Amberlock.new
+    amberlock = Amberlock::Amber.new('rPLqG41JuX2k8hC2woZq','DA-54ad0e02e5df')
     self.enabled = true
     self.mobile = mobile_no
     self.save!

@@ -25,5 +25,6 @@ end
 gem 'jquery-rails'
 gem 'rest-client'
 gem 'devise'
+gem 'amberlock'
 
 gem 'haml', '>= 3.1.7'
