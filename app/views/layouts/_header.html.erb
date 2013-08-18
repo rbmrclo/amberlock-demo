@@ -2,6 +2,6 @@
   <img src="http://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" />
   <h3> <%= "Email: #{current_user.email}"%> </h3>
   <hr>
-  <h5> Want more secured account?  | <%= "#{enable_or_not}" %> </h5>
-  <%= link_to 'Click me to enable Two-Factor Authentication', edit_user_path(@user) %>
+  <h5> Want more secured account?  | <span class="label label-warning"><%= "#{enable_or_not}" %></span> </h5>
+  <%= link_to 'Click me to enable Two-Factor Authentication', edit_user_path(@user), class: "btn" %>
 </h6>
