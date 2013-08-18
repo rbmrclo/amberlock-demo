@@ -1,9 +1,9 @@
-<h1> Stop! Please unlock the Amberlock </h1>
+<h1> Stop! Please unlock the AmberLock </h1>
 <%= link_to request_unlock_users_path, confirm: 'This will send a amberlock code' do %>
   <%= 'Generate Unlock Code' %>
 <% end %>
 
 <%= form_tag verify_unlock_users_path do %>
   <%= text_field_tag "unlock_code" %>
-  <%= submit_tag 'Sign me in' %>
+  <%= submit_tag 'Sign me in', class: "btn btn-success"%>
 <% end %>
