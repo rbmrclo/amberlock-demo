@@ -1,5 +1,5 @@
 <%= form_tag add_mobile_user_path(@user) do %>
   <%= "Mobile Number:"%>
   <%= text_field_tag :mobile %>
-  <%= submit_tag 'Add my mobile' %>
+  <%= submit_tag 'Add my mobile', class: "btn btn-success" %>
 <% end %>
